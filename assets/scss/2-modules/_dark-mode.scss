@@ -30,6 +30,8 @@ $dark-mode-bg-primary-red: #80132e;
   & .accordion__typography--card-header .btn-link,
   & .typography__h3,
   & .typography__header-global--nav-top,
+  & .links__nav-link--color:not(.btn-primary),
+  & .typography__nav-heading,
   & .typography__contacts--name {
     color: $dark-mode-text-primary-blue;
   }
@@ -180,6 +182,13 @@ $dark-mode-bg-primary-red: #80132e;
   & .nav-tabs .nav-link.active {
     color: $dark-mode-foreground-lighter;
   }
+  & .nav-content {
+    background-color: $color-bs-bg-dark !important;
+  }
+  & a.navbar-brand:hover .typography__nav-heading,
+    a.navbar-brand:focus .typography__nav-heading {
+      color: $dark-mode-text-link-hover !important;
+  }
   & .tab-pane {
     background-color: #192125;
     border-bottom: thin solid rgba(256,256,256,.5);
@@ -231,7 +240,7 @@ $dark-mode-bg-primary-red: #80132e;
   }
   & #headerGlobalNavbarContent.collapse.show .navbar-nav,
   & #headerGlobalNavbarContent.collapsing .navbar-nav {
-    background-color: #14181d;
+    background-color: #2a323c;
   }
   & #___gcse_0 {
     filter: invert(1);

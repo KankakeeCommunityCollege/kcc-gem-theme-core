@@ -1,13 +1,15 @@
-import toggleMenuOnWindowResize from './toggleMenuOnWindowResize.js';
-import toggleDropdownOnWindowResize from './toggleDropdownOnWindowResizeTwo.js';
-import googleCustomSearchInit from './googleCustomSearch.js';
-import closeMenuOnClick from './closeMegaNavOnClick.js';
-import underlineCurrentSite from './underlineCurrentSite.js';
+function loadModule(...argsArr) {
+  const module = argsArr[0];
+  let fn;
+  
+  argsArr.length == 1 ? fn = module : fn = argsArr[1];
+  console.log(module, fn);
+  return import(`./${module}`).then(({default: fn}) => fn());
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-  googleCustomSearchInit();
-  underlineCurrentSite();
-  toggleMenuOnWindowResize();
-  toggleDropdownOnWindowResize();
-  closeMenuOnClick();
-});
+export default function megaNav() {
+  loadModule('toggleMenuOnWindowResize');
+  loadModule('closeMegaNavOnClick', 'closeMenuOnClick');
+  loadModule('underlineCurrentSite');
+  loadModule('googleCustomSearch', 'googleCustomSearchInit');
+};

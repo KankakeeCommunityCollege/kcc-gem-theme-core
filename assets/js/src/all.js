@@ -13,7 +13,14 @@ function loadModule(...moduleArgs) {
   });
 }
 
+window.addEventListener('load', () => {
+    import('../nav/megaNav/megaNav.js').then(({default: megaNav}) => {
+      megaNav();
+    })
+});
+
 document.addEventListener('DOMContentLoaded', function () {
+  import('../alerts/alerts.js').then(({default : alerts}) => alerts());
   window.location.hostname.search(/\.kcc\.edu/) !== -1 ? loadModule('loadClarusCorpScript') : null;
   loadModule('wrapPowerText');
   loadModule('sliders', 'initSliders');
@@ -23,17 +30,16 @@ document.addEventListener('DOMContentLoaded', function () {
   loadModule('addClassToOpenNavbar');
 
   if (window.localStorage.getItem('darkModeSetting') == 'true' || window.location.pathname == '/settings/') {
-    import(/* webpackChunkName: 'darkMode' */ './darkMode').then(({ default: darkMode }) => {
+    import('./darkMode').then(({ default: darkMode }) => {
       return darkMode;
     }).then(darkMode => {
-      import(/* webpackChunkName: 'darkModeStyling' */ '../../scss/darkMode.scss').then(() => {
+      import('../../scss/darkMode.scss').then(() => {
         darkMode();
       });
     })
   }
   if (window.location.pathname == "/search/") {
-    import(/* webpackChunkName: 'searchPageOverrides' */ '../../scss/searchPageOverrides.scss').then(() => {
-      console.info('Search page overrides styling loaded');
+    import('../../scss/searchPageOverrides.scss').then(() => {
     }).catch( err => console.error(`Error loading searchPageOverrides.scss \n${err}`, err) );
   }
   document.getElementById('google_translate_element') ? loadModule('translateScript', 'watchForMenuClicks') : null;

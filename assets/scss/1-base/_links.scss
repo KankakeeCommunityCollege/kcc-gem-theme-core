@@ -45,7 +45,7 @@
 
 // Rules to override bootstrap 4's "nav-link" color
 // =========================================
-.navbar-light .navbar-nav .nav-link.links__nav-link--color:not(.btn-primary) { // Ugly (chain of) selectors needed to overide bootstrap's "nav-link" color:
+.links__nav-link--color:not(.btn-primary) { // Ugly (chain of) selectors needed to overide bootstrap's "nav-link" color:
   color: $primary-blue;
   &:hover,
   &:focus {

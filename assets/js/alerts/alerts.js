@@ -7,7 +7,7 @@ import getCachedResponse from './getCachedResponse.js';
 import checkForPrefersReducedMotion from './checkForPrefersReducedMotion.js';
 import checkForAccordionOrTab from './checkForAccordionOrTab.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+export default function alerts() {
   checkForPrefersReducedMotion();
 
   if (!document.getElementById('emergencyAlerts'))
@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', () => {
   ! window.sessionStorage.getItem('Alert-Content') ? // Checks if our cached alert is already in sessionStorage
     gapi.load('client', start) // If not, build the alert from a new Google API response
   : getCachedResponse(); // Otherwise, build the alert from our cached response
-});
+}

@@ -1,5 +1,5 @@
 // Custom JS to Close the Navigation menu, if its open, & if the screen goes above 992px wide (Bootstrap 4 'lg' devices)
-const NAVBAR_COLLAPSE_ID = 'headerGlobalNavbarContent'; // ID built into the sites' HTML
+const NAVBAR_COLLAPSE_SELECTOR = '.navbar-toggler--multi-collapse'; // ID built into the sites' HTML
 
 function collapseElement(el) {
   $(el).collapse('hide'); // Bootstrap 4 `.collapse()` method.
@@ -13,9 +13,9 @@ function checkNavbarCollapseState(menuEl) {
 
 function windowResizeHandler() {
   if ( window.innerWidth >= 992 ) {
-    const menuCollapseElement = document.getElementById(NAVBAR_COLLAPSE_ID);
-
-    checkNavbarCollapseState(menuCollapseElement);
+    const nodeList = document.querySelectorAll(NAVBAR_COLLAPSE_SELECTOR);
+    
+    [...nodeList].forEach(el => checkNavbarCollapseState(el));
   }
 }
 
