@@ -92,10 +92,6 @@ function contentHashLink() {
     return;
     
   initContentHashLink();
-
-  import(/* webpackChunkName: 'addAccordionOrTabHistoryStates' */ './addAccordionOrTabHistoryStates').then(({ default: addAccordionOrTabHistoryStates }) => {
-    addAccordionOrTabHistoryStates();
-  });
 }
 
 export default contentHashLink;

@@ -5,11 +5,11 @@ function loadModule(...argsArr) {
   let fn;
   
   argsArr.length == 1 ? fn = module : fn = argsArr[1];
-  return import(`./${module}`).then(({default: fn}) => fn());
+  import(`./${module}`).then(({default: fn}) => fn());
 }
 
 export default function megaNav() {
-  loadModule('toggleMenuOnWindowResize')
+  import('./toggleMenuOnWindowResize.js').then(({ default: toggleMenuOnWindowResize }) => toggleMenuOnWindowResize())
     .then(() => loadModule('closeMegaNavOnClick', 'closeMenuOnClick'))
     .then(() => loadModule('underlineCurrentSite'))
     .then(() => loadModule('googleCustomSearch', 'googleCustomSearchInit'))

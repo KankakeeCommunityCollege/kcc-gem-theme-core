@@ -22,11 +22,6 @@ const config = {
   plugins,
   entry: {
     'kcc-theme': './assets/js/src/all.js',
-    'kcc-theme-landing': './assets/js/landing/landing.js',
-    'kcc-nav': './assets/js/nav/nav/nav.js',
-    'kcc-mega-nav': './assets/js/nav/megaNav/megaNav.js',
-    'alerts': './assets/js/alerts/alerts.js',
-    'translate': './assets/js/src/translate.js',
   },
   output: {
     filename: '[name].bundle.js',
