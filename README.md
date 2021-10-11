@@ -1,14 +1,14 @@
-# kcc-gem-theme
+# kcc-gem-theme-core
 
 ### A Jekyll theme for new KCC sites.
 
 [![Gem Version](https://badge.fury.io/rb/kcc-gem-theme.svg)](https://badge.fury.io/rb/kcc-gem-theme)
 
----
+-----
 
 This theme's GitHub repo has all the Gulp, npm, & Webpack dependancies included to compile & view it in a browser, just like our new sites, for convenient development and previewing of changes.
 
----
+-----
 
 <br>
 
@@ -17,13 +17,13 @@ This theme's GitHub repo has all the Gulp, npm, & Webpack dependancies included 
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "kcc-gem-theme"
+gem "kcc-gem-theme-core"
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
 
 ```yaml
-theme: kcc-gem-theme
+theme: kcc-gem-theme-core
 ```
 
 And then execute:
@@ -32,10 +32,10 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install kcc-gem-theme
+    $ gem install kcc-gem-theme-core
 
 
----
+-----
 
 <br>
 
@@ -43,7 +43,7 @@ Or install it yourself as:
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hello. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
----
+-----
 
 <br>
 
@@ -69,14 +69,14 @@ $ npm run production
 alias npm-p="npm run production"
 ```
 
-3. (Optional) Make a new version release: Up the version in the kcc-gem-theme.gemspec file.
+3. (Optional) Make a new version release: Up the version in the kcc-gem-theme-core.gemspec file.
 
 ```shell
 ### Example .gemspec file ###
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name          = "kcc-gem-theme"
+  spec.name          = "kcc-gem-theme-core"
   spec.version       = "0.4.4" # increase the appropriate number following semantic versioning
 # ...
 ### Remainder of .gemspec file omitted. ###
@@ -93,23 +93,23 @@ git push origin master
 5. Build them gem.
 
 ```shell
-$ gem build kcc-gem-theme.gemspec
+$ gem build kcc-gem-theme-core.gemspec
 
 # should return something like:
 Successfully built RubyGem
-Name: kcc-gem-theme
+Name: kcc-gem-theme-core
 Version: 0.4.4
-File: kcc-gem-theme-0.4.4.gem
+File: kcc-gem-theme-core-0.4.4.gem
 ```
 
 6. Push the resulting gem to RubyGems.
 
 ```shell
-gem push kcc-gem-theme-0.4.4.gem
+gem push kcc-gem-theme-core-0.4.4.gem
 
 # should return something like:
 Pushing gem to https://rubygems.org...
-Successfully registered gem: kcc-gem-theme (0.4.4)
+Successfully registered gem: kcc-gem-theme-core (0.4.4)
 ```
 
 7. Update projects using the gem.
@@ -125,9 +125,9 @@ Fetching gem metadata from https://rubygems.org/.
 On your next build you should see any new changes to gem theme.
 
 When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `kcc-gem-theme.gemspec` accordingly.
+To add a custom directory to your theme-gem, please edit the regexp in `kcc-gem-theme-core.gemspec` accordingly.
 
----
+-----
 
 <br>
 
@@ -135,4 +135,4 @@ To add a custom directory to your theme-gem, please edit the regexp in `kcc-gem-
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
----
+-----

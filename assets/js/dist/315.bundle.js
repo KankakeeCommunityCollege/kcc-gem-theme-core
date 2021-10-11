@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunkkcc_gem_theme=self.webpackChunkkcc_gem_theme||[]).push([[315],{5315:function(e,c,t){t.r(c),c.default=function(){}}}]);
+"use strict";(self.webpackChunkkcc_gem_theme_core=self.webpackChunkkcc_gem_theme_core||[]).push([[315],{5315:function(e,c,t){t.r(c),c.default=function(){}}}]);
