@@ -6,49 +6,63 @@ title: KCC Gem Theme
 description: ''
 yt_embed: https://youtu.be/LUCrx9chw-c
 slides:
-  - image: assets/img/kcc-placeholder.png
-    alt-text: The Power of Community
-    url: 'https://continuinged.kcc.edu'
-    text: The **POWER** of Absolute Links
-  - image: assets/img/kcc-placeholder.png
-    alt-text: The Power of Education
-    url: 'landing-page'
-  - image: assets/img/kcc-placeholder.png
+  - image: uploads/ssc-sign.jpg
+    alt-text: "Photo of the newley renovated entrance to the Student Success Center"
+    url: '#'
+    text: 'The **POWER** of Community'
+  - image: uploads/back-wall_books.jpg
+    alt-text: Photo of the newly renovated library from the back-wall.
+    url: '#'
+    text: 'The **POWER** of Education'
+  - image: uploads/D51_3788.jpg
     alt-text: The Power of Giving
-    url: '/landing-page'
-    text: The **POWER** of Relative Links w/ baseurl
-    white_background: true
-  - image: assets/img/kcc-placeholder.png
-    alt-text: The Power of Giving
-    url: 'https://continuinged.kcc.edu'
-    text: The **POWER** of Community
-card_section: Card Section Name
-cards:
-  - name: Card Name
-    description: "In ultricies, nunc et interdum lobortis, turpis odio dignissim leo, nec sagittis dui leo id turpis. Aliquam erat volutpat. Cras enim felis, auctor et ex at, bibendum molestie libero. Donec non velit mi."
-    button_text: Learn More
-    link: #
-    thumb: assets/img/kcc-placeholder-square.png
-    thumb_alt_text: ''
-  - name: Card Name
-    description: "Etiam mattis ligula vel augue dictum tempor. Donec at aliquet magna, ut tempor turpis. Praesent congue nulla ut nisl malesuada accumsan. Donec eget eros sed risus efficitur sodales faucibus ut tortor."
-    button_text: Learn More
-    link: #
-    thumb: assets/img/kcc-placeholder-square.png
-    thumb_alt_text: ''
-  - name: Card Name
-    description: "Duis convallis volutpat dictum. Aliquam hendrerit ipsum quis tortor convallis, non aliquet enim fermentum. Praesent nec ligula sed magna molestie volutpat."
-    button_text: Learn More
-    link: #
-    thumb: assets/img/kcc-placeholder-square.png
-    thumb_alt_text: ''
+    url: '#'
+    text: 'The **POWER** of Learning'
+  - image: uploads/D51_3799.jpg
+    alt-text: Photo of the newly renovated computer lab in KCC's Library
+    url: '#'
+    text: 'The **POWER** of Success'
+page_actions:
+  - link: 'https://kcc.libguides.com/search'
+    label: "Link to the KCC Library 'Research Material' page"
+    service: Research
+    description: 'Books, articles, streaming video and other materials available through the library.'
+    button_text: 'Get Started'
+  - link: 'tutoring/'
+    label: 'Link to the KCC Library tutoring page'
+    service: Tutoring
+    description: 'Tutoring schedules, online tutoring information, and FAQs about the tutoring process.'
+    button_text: 'Learn More'
+  - link: 'https://kankakee.libcal.com/'
+    label: 'Reserve Space'
+    service: 'Reserve Space'
+    description: 'Reserve a computer, study room, a seat in tutoring, or a seat in the library.'
+    button_text: 'Learn More'
 ---
 
 <main>
   <div class="container background__color--tan">
     {% include hero-slider.html %}
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="typography__call-to-action editable">Services</h2>
+      </div>
+      {% assign icon = site.icons %}
+      {% for action in page.page_actions %}
+      {% assign index = forloop.index0 %}
+      <div class="content__min-height col-md-4 mb-5 text-center d-flex flex-column align-items-center justify-content-center">
+        <a href="{% unless action.link contains 'http://' or action.link contains 'https://' %}{{ page.baseurl }}{% endunless %}{{ action.link }}" title="{{ action.label }}">
+          {{ icon[index] }}
+        </a>
+        <a class="links__no-underline" href="{% unless action.link contains 'http://' or action.link contains 'https://' %}{{ page.baseurl }}{% endunless %}{{ action.link }}">
+          <h4 class="typography__orange-h4 typography__sm-sup">{{ action.service }}</h4>
+          <p class="typography__h5--description content__max-width mx-auto">{{ action.description }}</p>
+          <a href="{{ action.link }}" class="mt-auto btn btn-primary">{{ action.button_text }}</a>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-  {% include card-section.html %}
   <div class="container">
     <div class="row">
       <div class="col margins__col--top section__heading-underline--transparent">
@@ -113,25 +127,18 @@ cards:
           </tbody>
         </table>
         <br>
-        View an example <a href="{{ page.baseurl }}landing-page/" class="btn btn-primary">Landing Page</a>
         <hr>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <a href=""><img src="{{ page.baseurl }}assets/img/kcc-placeholder.png" data-src="{{ page.baseurl }}assets/img/itransfer.png" alt="Some alt text." /></a>
+        <a href=""><img src="{{ page.baseurl }}assets/img/placeholder_16to9.jpg" data-src="{{ page.baseurl }}assets/img/itransfer.png" alt="Some alt text." /></a>
       </div>
     </div>
+    <div class="mt-5">
+      {% include contacts.html %}
+    </div>
+    {% include chat-now.html %}
   </div>
-  {% include contacts.html %}
 </main>
 
-<section class="mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        {% include chat-now.html %}
-      </div>
-    </div>
-  </div>
-</section>

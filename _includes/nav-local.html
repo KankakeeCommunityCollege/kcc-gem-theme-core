@@ -2,9 +2,9 @@
   <a href="{{ page.baseurl }}" class="links__no-underline navbar-brand">
     <h1 class="typography__nav-heading{% if site.nav_config.smaller_brand == true %} typography__nav-heading--smaller{% endif %}">{{ site.site_name }}</h1>
   </a>
-  <ul class="js-nav justify-content-end align-items-start navbar-nav ml-auto navbar-expand-lg collapse navbar-collapse navbar-toggler--multi-collapse">
+  <ul class="mb-2 js-nav justify-content-end align-items-start navbar-nav ml-auto navbar-expand-lg collapse navbar-collapse navbar-toggler--multi-collapse">
     {% for link in site.nav_links %}
-    {% if link.button == false  %}
+    {% if link.button != true  %}
     <li class="js-nav-item nav-item">
       <a class="nav-link py-1 py-lg-2 links__nav-link--color typography__nav-local--nav-link" href="{% unless link.external == true %}{{page.baseurl}}{% endunless %}{{ link.link_href }}">{{ link.link_text }}</a>
     </li>
@@ -26,19 +26,4 @@
     {% endif %}
     {% endfor %}
   </ul>
-  <a href="https://my.kcc.edu"
-    target="_blank"
-    rel="noopener"
-    class="nav-link ml-auto mr-3 header-global__nav-top--nav-link typography__header-global--nav-top btn buttons__my-kcc buttons__my-kcc--mobile typography__my-kcc d-block d-lg-none">
-    My KCC
-  </a>
-  <button class="navbar-toggler header-global__navbar--toggler my-2"
-    type="button"
-    data-toggle="collapse"
-    data-target=".navbar-toggler--multi-collapse"
-    aria-controls="headerGlobalNavbarContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 </nav>

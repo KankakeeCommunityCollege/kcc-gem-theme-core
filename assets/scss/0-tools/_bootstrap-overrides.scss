@@ -45,22 +45,22 @@
 // .dropdown-toggle::after controls the BS4 dropdown-menu carot symbol's display
 @media screen and (max-width: 992px) {
   .dropdown-toggle::after {  // Set starting position & transition Fx
-    transform: rotate(0deg);
+    transform: rotate(-90deg);
     transition: transform 0.3s ease-in-out;
   }
 
   .nav-item.dropdown.show .dropdown-toggle::after {  // Selectors that are only present when a dropdown is toggled to the open state.
-    transform: rotate(-180deg);
+    transform: rotate(0deg);
   }
 }
 
 .dropdown-toggle.btn::after {  // Set starting position & transition Fx
-  transform: rotate(0deg);
+  transform: rotate(-90deg);
   transition: transform 0.3s ease-in-out;
 }
 
 .nav-item.dropdown.show .dropdown-toggle.btn::after {  // Selectors that are only present when a dropdown is toggled to the open state.
-  transform: rotate(-180deg);
+  transform: rotate(0deg);
 }
 
 @media screen and (min-width: 992px) {

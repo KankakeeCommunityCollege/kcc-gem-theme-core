@@ -4,6 +4,9 @@
 {% include styles/vendor.html %}
 {%- if page.sheet_key -%}
 <!-- dataTables stylesheets -->
+<!-- preconnects -->
+<link rel="preconnect" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+<link rel="preconnect" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css">
 <!-- dataTables Bootstrap4 themed stylesheet -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
 <!-- dataTables "Responsive" extension stylesheet for bootstrap4 theme -->
@@ -19,7 +22,6 @@
 {% include footer.html %}
 {% include scripts/vendor-cdn.html %}
 {% include scripts/google-api.html %}
-{% include scripts/emergency-alerts.html %}
 {% include scripts/kcc-theme.html %}
 {%- if page.sheet_key -%}
 {% include scripts/table-cdn.html %}{% endif %}

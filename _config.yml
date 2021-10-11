@@ -16,6 +16,8 @@ collections:
     people: false
   contacts:
     people: true
+  icons:
+    output: false
 permalink: pretty
 description: > # this means to ignore newlines until "baseurl:"
 # Delete this comment and place description on this line
@@ -53,23 +55,16 @@ uploads_dir: # specifies the default uploads directory for uploads in CloudCanno
   - "uploads/"
 
 nav_links:
-  - link_text: Tutoring
-    link_href: tutoring
-    button: false
-  - link_text: Policies
-    link_href: 'policies'
-    button: false
-  - link_text: About
-    link_href: 'about'
-    button: false
-  - link_text: Faculty Resources
-    link_href: 'https://kcc.libguides.com/facultyservices'
-    external: true
-    button: false
+  - link_text: '404'
+    link_href: 404.html
+  - link_text: Search
+    link_href: search
+  - link_text: Accordion
+    link_href: 'accordion'
+  - link_text: Settings
+    link_href: 'settings'
   - link_text: Contact
     link_href: '#contact'
-    button: false
-    external: false
   - link_text: Get Help
     button: true
     dropdown:

@@ -59,7 +59,31 @@
     padding-bottom: .125rem;
     margin-top: 0.25rem;
     margin-bottom: .375rem;
+    position: absolute;
+    top: 50px;
+    right: calc(56px + 1rem);
+    z-index: 1;
   }
+  &__my-kcc--hidden {
+    transition-duration: .2s;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+    transition-delay: .25s;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .buttons__my-kcc {
+    top: unset;
+    right: unset;
+  }
+}
+
+.header-global__open .buttons__my-kcc--hidden {
+  visibility: visible;
+  opacity: 1;
 }
 
 @media screen and (min-width: 992px) {

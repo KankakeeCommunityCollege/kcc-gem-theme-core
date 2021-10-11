@@ -1,47 +1,42 @@
 import '../../scss/kcc-theme.scss';
-
-function loadModule(...moduleArgs) {
-  const module = moduleArgs[0];
-  let defaultFunc;
-  let funcArg = undefined;
-  
-  moduleArgs.length > 1 ? defaultFunc = moduleArgs[1] : defaultFunc = moduleArgs[0];
-  moduleArgs.length > 2 ? funcArg = moduleArgs[2] : null;
-
-  import(`./${module}`).then(({ default: defaultFunc }) => {
-    funcArg = undefined ? defaultFunc() : defaultFunc(funcArg);
-  });
-}
+import loadModule from './loadModule'; // loadModule takes the following arguments:
+// arg1 - Name of the module - required
+// arg2 - Modules' default function which becomes the callback function after module is loaded - optional
+// arg3 - Argument to pass to the default function - optional and requires arg2
+// Syntax: loadModule(arg1, arg2, arg3).then(...)... // uses Webpack dynamic imports which is Promise based
+const errorHandler = err => console.error(`Error loading module:\n${err}`, err);
 
 window.addEventListener('load', () => {
-    import('../nav/megaNav/megaNav.js').then(({default: megaNav}) => {
-      megaNav();
-    })
+  import('../nav/megaNav/megaNav.js') // This JS can wait until window.onload.
+    .then(({ default: megaNav }) => megaNav())
+    .catch(err => errorHandler(err));
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  import('../alerts/alerts.js').then(({default : alerts}) => alerts());
-  window.location.hostname.search(/\.kcc\.edu/) !== -1 ? loadModule('loadClarusCorpScript') : null;
-  loadModule('wrapPowerText');
-  loadModule('sliders', 'initSliders');
-  loadModule('walkText', 'walkText', document.body);
-  loadModule('footerDate');
-  loadModule('lazyLoad');
-  loadModule('addClassToOpenNavbar');
-
-  if (window.localStorage.getItem('darkModeSetting') == 'true' || window.location.pathname == '/settings/') {
-    import('./darkMode').then(({ default: darkMode }) => {
-      return darkMode;
-    }).then(darkMode => {
-      import('../../scss/darkMode.scss').then(() => {
-        darkMode();
-      });
+document.addEventListener('DOMContentLoaded', () => {
+  import('../alerts/alerts.js').then(({ default: alerts }) => alerts())
+    .then(() => window.location.hostname.search(/\.kcc\.edu/) !== -1 ? loadModule('loadClarusCorpScript') : null)
+    .then(() => document.querySelector('.hero-slider__slider') ? loadModule('wrapPowerText') : null)
+    .then(() => document.querySelector('.hero-slider__slider') ? loadModule('sliders', 'initSliders') : null)
+    .then(() => loadModule('walkText', 'walkText', document.body))
+    .then(() => loadModule('footerDate'))
+    .then(() => loadModule('lazyLoad'))
+    .then(() => loadModule('addClassToOpenNavbar'))
+    .then(() => window.location.pathname == '/settings/' ? loadModule('userSettings') : null)
+    .then(() => {
+      if (window.localStorage.getItem('darkModeSetting') == 'true' || window.location.pathname == '/settings/') {
+        import('./darkMode').then(({ default: darkMode }) => darkMode)
+          .then(darkMode => {
+          import('../../scss/darkMode.scss').then(() => {
+            darkMode();
+          });
+        })
+      }
     })
-  }
-  if (window.location.pathname == "/search/") {
-    import('../../scss/searchPageOverrides.scss').then(() => {
-    }).catch( err => console.error(`Error loading searchPageOverrides.scss \n${err}`, err) );
-  }
-  document.getElementById('google_translate_element') ? loadModule('translateScript', 'watchForMenuClicks') : null;
-  document.getElementById('errorPageSearch') ? loadModule('errorPageSearch', 'errorPageSearch') : null;
+    .then(() => window.location.pathname == '/search/' ? import('../../scss/searchPageOverrides.scss') : null)
+    .then(() => {
+      return document.getElementById('google_translate_element') ?
+        loadModule('translateScript', 'watchForMenuClicks')
+      : null;
+    }).then(() => document.getElementById('errorPageSearch') ? loadModule('errorPageSearch', 'errorPageSearch') : null)
+    .catch( err => errorHandler(err));
 });

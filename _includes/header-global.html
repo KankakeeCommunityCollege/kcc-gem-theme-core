@@ -30,6 +30,21 @@
               alt="Close icon">
             </span>
         </button>
+        <a href="https://my.kcc.edu"
+          target="_blank"
+          rel="noopener"
+          class="nav-link ml-auto mr-3 header-global__nav-top--nav-link typography__header-global--nav-top btn buttons__my-kcc buttons__my-kcc--mobile typography__my-kcc{% if site.core_site_subsite == true %} buttons__my-kcc--hidden{% endif %} d-block d-lg-none">
+          My KCC
+        </a>
+        <button class="navbar-toggler header-global__navbar--toggler my-2"
+          type="button"
+          data-toggle="collapse"
+          data-target=".navbar-toggler--multi-collapse"
+          aria-controls="headerGlobalNavbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
           <div class="collapse navbar-collapse navbar-toggler--multi-collapse flex-column{% if site.core_site == true %} header-global__core{% endif %}" id="headerGlobalNavbarContent">
 {% include nav-global-top.html %}
 {% include nav-global-bottom.html %}
