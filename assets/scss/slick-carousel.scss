@@ -1,0 +1,9 @@
+// Slick carousel styling SCSS partials
+@import '0-tools/slick-vars';
+@import '../../node_modules/slick-carousel/slick/slick.scss';
+
+@import '../../node_modules/slick-carousel/slick/slick-theme.scss';
+
+@import '0-tools/vars';
+@import '2-modules/sliders';
+@import '2-modules/hero-slider';

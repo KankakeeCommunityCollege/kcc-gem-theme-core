@@ -1,5 +1,7 @@
+    {% unless jekyll.environment == "production" or jekyll.environment == "publish" %}
     <!-- Custom CSS Stylesheet for CloudCannon -->
     <link rel="stylesheet" href="{{page.baseurl}}assets/css/content.css">
+    {% endunless %}
     {%- comment -%}
     <!-- Uncomment to prevent IE-11 caching (for IE testing) -->
     <!-- <META HTTP-EQUIV="Pragma" CONTENT="no-cache">

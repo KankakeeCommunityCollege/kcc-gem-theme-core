@@ -208,25 +208,11 @@
 }
 
 .hero-slider__slider .slick-dots li button:before {
-  color: $landing-bg;
-  font-size: 12px;
-  line-height: 30px;
   opacity: 1;
-  text-shadow:
-    -1px -1px 0 $black,
-    1px -1px 0 $black,
-    -1px 1px 0 $black,
-    1px 1px 0 $black;
 }
 
 .hero-slider__slider .slick-dots li.slick-active button:before {
-  color: $primary-blue;
   opacity: 1;
-  text-shadow:
-    -1px -1px 0 $black,
-    1px -1px 0 $black,
-    -1px 1px 0 $black,
-    1px 1px 0 $black;
 }
 
 .hero-slider__slider .slick-dots li  {
@@ -240,14 +226,6 @@
   border-color: $grey-8;
   border-style: solid;
   border-width: thin;
-}
-
-.hero-slider__slider {   // prevents all slides from displaying vertically before slick has initialized
-  visibility: hidden;
-}
-
-.slick-initialized {   // makes slides visible again once slick has initialized
-  visibility: visible;
 }
 
 .slick-next::before {
@@ -327,4 +305,8 @@
 .hero-slider__button--toggle:hover:before,
 .hero-slider__button--toggle:focus:before {
   opacity: 1;
+}
+
+.slick-dots li.slick-active button:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle fill="%230f3b63" cx="6" cy="6" r="3.5"/></svg>');
 }

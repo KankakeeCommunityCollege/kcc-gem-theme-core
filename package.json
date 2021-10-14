@@ -52,9 +52,11 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
+    "bootstrap": "^4.6",
     "colors": "^1.4.0",
     "core-js": "^3.6.5",
-    "regenerator-runtime": "^0.13.5"
+    "regenerator-runtime": "^0.13.5",
+    "slick-carousel": "^1.8.1"
   },
   "comments": {
     "babel": {

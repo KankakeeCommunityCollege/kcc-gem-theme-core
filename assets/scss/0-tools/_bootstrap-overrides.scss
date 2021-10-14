@@ -69,6 +69,7 @@
   }
 }
 
-// End BS4 dropdown-menu carot modifications.
-
-
+// Override the border color for .alert-warning
+.alert-warning {
+  border-color: rgba(0,0,0,.125)
+}

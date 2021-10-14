@@ -1,11 +1,23 @@
 //  VARIABLES
 // =============================
 
+// @font-face for typekit's eruostile
+@font-face {
+  font-family:'eurostile';
+  src:url("https://use.typekit.net/af/198f80/00000000000000003b9b2162/27/l?subset_id=2&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/198f80/00000000000000003b9b2162/27/d?subset_id=2&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/198f80/00000000000000003b9b2162/27/a?subset_id=2&fvd=i7&v=3") format("opentype");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+// @import for google fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500&family=Roboto:wght@400;500;700&display=swap');
+
 // Fonts
 $font-family-paragraph: 'Open Sans', sans-serif;
 $font-family-headings: 'Roboto', sans-serif;
 $font-family-power: 'Libre Franklin', sans-serif;
-$font-family-kcc: 'Eurostile', sans-serif;
+$font-family-kcc: 'eurostile', sans-serif;
 $font-family-oswald: 'Oswald', sans-serif;
 $font-family-saira: 'Saira', 'sans-serif';
 $font-family-icons: 'Material Icons';
