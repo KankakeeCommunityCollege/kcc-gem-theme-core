@@ -1,4 +1,4 @@
-@import './bootstrap.scss'; // Imports & compiles the Bootstrap 4's styling
+@import './bootstrap.scss'; // Imports & compiles the Bootstrap 4 styling
 
 // Variables
 @import '0-tools/vars';
@@ -18,7 +18,7 @@
 
 // Modular components
 @import '2-modules/footer';
-@import '2-modules/sliders';
+@import '2-modules/sliders'; // Custom style overrides for `slick-carousel` required before slick is loaded dynamically
 @import '2-modules/social-icons';
 @import '2-modules/error';
 @import '2-modules/benefits';
@@ -28,7 +28,6 @@
 @import '2-modules/contacts';
 @import '2-modules/accordion';
 @import '2-modules/loader';
-// @import '2-modules/nav-global';
 @import '2-modules/nav-content';
 @import '2-modules/yt-embed';
 @import '2-modules/breadcrumbs';
