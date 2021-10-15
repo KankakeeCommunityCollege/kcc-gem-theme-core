@@ -24,7 +24,8 @@ window.addEventListener('load', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadScript('https://apis.google.com/js/api.js', () => {
-    import('../alerts/alerts.js').then(({ default: alerts }) => alerts())
+    import('jquery').then(({default: $}) => import('bootstrap'))
+      .then(() => import('../alerts/alerts.js').then(({ default: alerts }) => alerts()))
       .then(() => loadModule('checkForPrefersReducedMotion'))
       .then(() => accordionOrTabSelector ? loadModule('contentHashLink') : null)
       .then(() => accordionOrTabSelector ? loadModule('addAccordionOrTabHistoryStates') : null)
@@ -58,5 +59,5 @@ document.addEventListener('DOMContentLoaded', () => {
         : null;
       }).then(() => document.getElementById('errorPageSearch') ? loadModule('errorPageSearch', 'errorPageSearch') : null)
       .catch( err => errorHandler(err));
-  });
+    });
 });

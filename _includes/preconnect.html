@@ -1,18 +1,22 @@
-<!-- preconnect to assets -->
-<!-- fonts -->
-<!-- preconnect to the Eurostile typekit font -->
-<link rel="preconnect" href="https://use.typekit.net">
-<!-- Google fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<!-- Google Cusom Search -->
-<link rel="preconnect" href="https://www.google.com">
-<!-- Google API -->
-<link rel="preconnect" href="https://apis.google.com/js/api.js">
-<!-- Preload fonts -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500&family=Roboto:wght@400;500;700&family=Material+Icons&display=swap">
-<!-- Custom theme JS -->
-<link rel="preconnect" as="script" href="{{page.baseurl}}assets/js/dist/kcc-theme.bundle.js?version={% include hash/theme_hash.yml %}">
-{%- if site.theme_config != true -%}
-<link rel="preconnect" as="script" href="{{page.baseurl}}assets/js/dist/main{% if site.data.hash %}.{{ site.data.hash }}{% endif %}.bundle.js">
-{%- endif -%}
-<!-- End of preconnects -->
+<!-- preconnect & preload assets -->
+    <!-- fonts -->
+    <!-- preconnect to the Eurostile typekit font -->
+    <link rel="preconnect" href="https://use.typekit.net">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google resources -->
+    <!-- Google Custom Search -->
+    <link rel="preconnect" href="https://www.google.com">
+    <!-- Google API -->
+    <link rel="preconnect" href="https://apis.google.com/js/api.js">
+    {%- if page.slides -%}
+    {%- assign first_slide = page.slides[0].image -%}
+    <!-- Preload the first slide image -->
+    <link rel="preload" as="image" href="{{ page.baseurl }}{{ first_slide }}">
+    {% endif %}
+    <!-- Custom theme JS -->
+    <link rel="preconnect" as="script" href="{{page.baseurl}}assets/js/dist/kcc-theme.bundle.js?version={% include hash/theme_hash.yml %}">
+    {%- if site.theme_config != true -%}
+    <link rel="preconnect" as="script" href="{{page.baseurl}}assets/js/dist/main{% if site.data.hash %}.{{ site.data.hash }}{% endif %}.bundle.js">
+    {%- endif -%}
+    <!-- End of preconnects & preloads -->

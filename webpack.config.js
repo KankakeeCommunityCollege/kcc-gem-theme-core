@@ -1,5 +1,6 @@
 process.traceDeprecation = true;
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackHashFilePlugin = require('./buildtools/WebpackHashFilePlugin'); // Our custom plugin found in `/buildtools`
 const devMode = process.env.NODE_ENV !== 'production';
@@ -15,13 +16,18 @@ const plugins = [
     path: '../_includes/hash/',
     fileName: 'theme_hash.yml'
   }), // HASH IS USED TO KICK-OFF JEKYLL
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery",
+    'slick': 'slick-carousel',
+  }),
 ];
 
 const config = {
   mode: devMode ? 'development' : 'production',
   plugins,
   entry: {
-    'kcc-theme': './assets/js/src/all.js',
+    'kcc-theme': './assets/js/src/all.js'
   },
   output: {
     filename: '[name].bundle.js',

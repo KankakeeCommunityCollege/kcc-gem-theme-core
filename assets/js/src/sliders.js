@@ -1,17 +1,15 @@
 // Custom JS to initialize slick slider (https://github.com/kenwheeler/slick) and then build a play/pause toggle button
 // Uses slick-specific methods & slick events. See slick events at: https://github.com/kenwheeler/slick/#events
+import $ from 'jquery';
+import 'slick-carousel';
+window.jQuery = window.$ = $; // Slick is older and requires jquery to be defined in window.
+
 const HERO_SLIDER_CLASSNAME = '.hero-slider__slider';  // Our classname for the hero-slider's DOM parent
 const SLICK_PLAY = 'slickPlay';  // Methods unique to slick
 const SLICK_PAUSE = 'slickPause';  // Methods unique to slick
 const SLICK_NEXT_SLIDE = 'slickNext';  // Methods unique to slick
 const play = 'Play';
 const pause = 'Pause';
-// =============================================================================================== //
-// TODO:                                                                                           //
-//                                                                                                 //
-//    Rewrite below prevArrow & nextArrow as <button> elements (like slick's default arrows).      //
-//                                                                                                 //
-// =============================================================================================== //
 
 function initSlick() {
   $(HERO_SLIDER_CLASSNAME).slick({
@@ -64,8 +62,9 @@ function createButton() {
 }
 
 function watchForSlickInit(initFunction) {
-  // slick's on 'init' function (See events in slick docs):
-  $(HERO_SLIDER_CLASSNAME).on('init', function(event, slick){ // According to slick doc's; you have to call a $(slick).on('init', function(){ //... }); before you initialize slick
+  // slick's on 'init' function (See "events" in slick docs):
+  // According to slick's docs; you have to call a $(slick).on('init', function(){ //... }); before you initialize slick:
+  $(HERO_SLIDER_CLASSNAME).on('init', function(event, slick){
     createButton();
   });
   initFunction();  // Initializing slick after the above `.on('init', function() {})`
@@ -77,12 +76,5 @@ function initSliders() {
 
   watchForSlickInit(initSlick);
 }
-//
-//  USAGE:
-//
-//    import initSliders from './sliders.js';
-//
-//    document.addEventListener('DOMContentLoaded', function() {
-//      initSliders();
-//    });
+
 export default initSliders;

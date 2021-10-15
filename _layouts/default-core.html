@@ -1,7 +1,5 @@
 {% include document-head.html %}
-{% include styles/fonts.html %}
 {% include scripts/google-tag.html %}
-{% include styles/vendor.html %}
 {%- if page.sheet_key -%}
 <!-- dataTables stylesheets -->
 <!-- preconnects -->
@@ -20,8 +18,6 @@
 {% if site.core_root != true and page.no_alert != true %}{% include emergency-alerts.html %}{% endif %}
 {{ content }}
 {% include footer.html %}
-{% include scripts/vendor-cdn.html %}
-{% include scripts/google-api.html %}
 {% include scripts/kcc-theme.html %}
 {%- if page.sheet_key -%}
 {% include scripts/table-cdn.html %}{% endif %}
