@@ -1,20 +1,12 @@
 const NAVBAR_COLLAPSE_ID = 'headerGlobalNavbarContent';
 const HEADER_GLOBAL = '.header-global';
+const header = document.querySelector(HEADER_GLOBAL);
 
 function addClassToOpenNavbar() {
-  if ( ! document.getElementById(NAVBAR_COLLAPSE_ID) )
-    return;
+  const navbarCollapse = document.getElementById(NAVBAR_COLLAPSE_ID);
 
-  const collapse = document.getElementById(NAVBAR_COLLAPSE_ID);
-  const header = document.querySelector(HEADER_GLOBAL);
-
-  $(collapse).on('show.bs.collapse', (e) => {
-    header.classList.add('header-global__open');
-  });
-
-  $(collapse).on('hide.bs.collapse', (e) => {
-    header.classList.remove('header-global__open');
-  });
+  navbarCollapse.addEventListener('show.bs.collapse', e => header.classList.add('header-global__open'));
+  navbarCollapse.addEventListener('hide.bs.collapse', e => header.classList.remove('header-global__open'));
 }
 
 export default addClassToOpenNavbar;

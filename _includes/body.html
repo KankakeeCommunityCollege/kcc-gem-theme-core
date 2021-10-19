@@ -9,5 +9,5 @@
     <META HTTP-EQUIV="Expires" CONTENT="-1"> -->
     {% endcomment %}
   </head>
-  <body{% if page.homepage == true %} id="homePage"{% endif %}>
-    <h1 class="sr-only">{%- if page.outline_title -%}{{ page.outline_title }}{% else %}{{ page.title }}{%- endif -%}</h1>
+  <body{% if page.homepage == true %} data-bs-no-jquery id="homePage"{% endif %}>
+    <h1 class="visually-hidden">{%- if page.outline_title -%}{{ page.outline_title }}{% else %}{{ page.title }}{%- endif -%}</h1>

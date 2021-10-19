@@ -1,12 +1,12 @@
           <ul id="navGlobalBottom" class="navbar-nav header-global__nav-bottom justify-content-end header-global__navbar-nav--divider{% unless site.core_site_subsite == true %} header-global__nav-bottom--after{% endunless %}">
             {% for item in site.navigation %}
             <li
-              data-nav="{{ item.link_text | downcase | replace: ' ', '-' | replace: '&', 'and' }}"
+              data-bs-nav="{{ item.link_text | downcase | replace: ' ', '-' | replace: '&', 'and' }}"
               class="nav-item dropdown header-global__dropdown header-global__dropdown--position">
               <a href="#"
                 id="{{ item.link_text | downcase | replace: ' ', '-' | replace: '&', 'and' }}-dropdown"
                 role="button"
-                data-toggle="dropdown"
+                data-bs-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
                 class="nav-link dropdown-toggle header-global__nav-bottom--nav-link typography__nowrap--sm typography__header-global--nav-bottom">

@@ -110,18 +110,16 @@ page_actions:
         </ol>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Launch static backdrop modal example
         </button>
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Example Modal Title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <p>Example modal body.</p>
@@ -129,7 +127,7 @@ page_actions:
                   close the modal.</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Understood</button>
               </div>
             </div>
@@ -161,7 +159,7 @@ page_actions:
     </div>
     <div class="row">
       <div class="col">
-        <a href=""><img src="{{ page.baseurl }}assets/img/placeholder_16to9.jpg" data-src="{{ page.baseurl }}assets/img/itransfer.png" alt="Some alt text." /></a>
+        <a href=""><img src="{{ page.baseurl }}assets/img/placeholder_16to9.jpg" data-bs-src="{{ page.baseurl }}assets/img/itransfer.png" alt="Some alt text." /></a>
       </div>
     </div>
     <div class="mt-5">
