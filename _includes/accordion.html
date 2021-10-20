@@ -12,6 +12,7 @@
     <div class="card-header px-0" id="card-header-{{ this_accordion_id }}">
       <h2 class="mb-0 accordion__typography--card-header accordion__typography--hover">
         <button
+          id="{{ this_accordion_id }}-button"
           class="btn btn-link buttons__no-decoration accordion__button{% if forloop.first != true %} collapsed{% endif %}{% if forloop.first == true and page.accordion_expanded == false %} collapsed{% endif %}"
           type="button" data-bs-target="#{{ this_accordion_id }}" data-bs-toggle="collapse"
           aria-expanded="{% if forloop.first == true and page.accordion_expanded != false %}true{% else %}false{% endif %}"
@@ -22,7 +23,8 @@
     </div>
     <div id="{{ this_accordion_id }}"
       class="collapse links__offset{% if forloop.first == true and page.accordion_expanded != false %} show{% endif %}"
-      aria-labelledby="card-header-{{ this_accordion_id }}">
+      role="region"
+      aria-labelledby="{{ this_accordion_id }}-button">
       <div class="card-body">
         <!-- Editor Link -->
         <a href="cloudcannon:collections/{{ item.path }}" class="btn btn-success mb-4 editor-button">Edit This Accordion

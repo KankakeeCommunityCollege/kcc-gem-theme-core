@@ -4,7 +4,21 @@ homepage: true
 baseurl: '/'
 title: KCC Gem Theme
 description: ''
-yt_embed: https://youtu.be/LUCrx9chw-c
+csp_script: >
+  script-src 'self'
+  https://www.google.com/cse/static/style/look/v4/default.css 
+  https://www.google.com/cse/static/element/cc267ab8871224bd/default+en.css 
+  https://cse.google.com 
+  https://use.typekit.net 
+  https://fonts.gstatic.com 
+  https://www.google.com 
+  https://apis.google.com/js/api.js 
+  https://www.google.com/cse/static/element/cc267ab8871224bd/cse_element__en.js
+  https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en_US.wk7zEZseXNs.O/m=client/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCOmgtod9hyJVly8FtL6dHsuETJ2AQ/cb=gapi.loaded_0
+  ;  
+csp_style: >
+  style-src 'self'
+  ; 
 slides:
   - image: uploads/ssc-sign.jpg
     alt-text: "Photo of the newley renovated entrance to the Student Success Center"

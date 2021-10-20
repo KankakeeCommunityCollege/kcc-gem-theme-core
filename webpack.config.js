@@ -27,7 +27,8 @@ const config = {
   mode: devMode ? 'development' : 'production',
   plugins,
   entry: {
-    'kcc-theme': './assets/js/src/all.js'
+    'kcc-theme': './assets/js/src/all.js',
+    'nomodule': './assets/js/src/nomodule.js',
   },
   output: {
     filename: '[name].bundle.js',

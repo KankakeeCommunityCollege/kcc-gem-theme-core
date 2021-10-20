@@ -7,6 +7,10 @@
     <title>{{page.title}} - {{site.title}}</title>
     <meta name="description" content="{{page.description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- if page.csp_script or page.csp_style -%}
+    <meta http-equiv="Content-Security-Policy"
+      content="{{ page.csp_default | join: ' ' }} {{ page.csp_src | join: ' ' }} {{ page.csp_script | join: ' ' }}">
+    {%- endif -%}
     {% include preconnect.html %}
     <!-- ==============================
       KCC GEM THEME

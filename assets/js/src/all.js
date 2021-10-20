@@ -1,54 +1,23 @@
-import '../../scss/kcc-theme.scss';
-import loadModule from './loadModule'; // loadModule takes the following arguments:
-// arg1 - Name of the module - required
-// arg2 - Modules' default function which becomes the callback function after module is loaded - optional
-// arg3 - Argument to pass to the default function - optional and requires arg2
-// Syntax: loadModule(arg1, arg2, arg3).then(...)... // uses Webpack dynamic imports which is Promise based
+import '../../scss/kcc-theme.scss'; // Webpack compiles the main stylesheet from this sass file import
+import loadModule from './loadModule'; // See module's comments for usage/syntax
+
 const errorHandler = err => console.error(`Error loading module:\n${err}`, err);
-const accordionOrTabSelector = document.querySelector('#accordion') || document.querySelector('.navTabs')
+// Accordions and tabbed-content have these unique selectors in the HTML
+const accordionOrTabSelector = document.querySelector('#accordion') || document.querySelector('.navTabs');
 const path = window.location.pathname;
 
 function loadScript(src, callback) {
   const script = document.createElement('script');
 
   script.src = src;
-  script.addEventListener('load', () => callback())
+  script.addEventListener('load', () => callback());
   document.head.append(script);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Static import of kcc-theme.scss
-  // Static import of loadModule.js 
-
-  // After DOMContentLoaded asynchronously & conditionally import all modules
-  // if `#emergencyAlerts`, gapi then callback:
-    // alerts()
-  // if accordionOrTabSelector, checkForPrefersReducedMotion and:
-    // contentHashLink
-    // addAccordionOrTabHistoryStates
-  /* // loadClarusCorpScript */
-  // if hero-slider, slick-carousel.scss and
-      // wrapPowerText
-      // sliders, initSliders
-  // if lazy-load selector, lazyLoad
-  // NO CONDITION: walkText
-  // NO CONDITION: footerDate
-  // NO CONDITION: addClassToOpenNavbar
-  // if settings page, userSettings
-  // if localStorage: darkModeSetting: true OR settings page, darkMode and:
-    // darkMode.scss
-    // darkModeSetting();
-  // if search page, searchPageOverrides.scss
-  // if google_translate_element, translateScript
-  // if #errorPageSearch element, errorPageSearch
-  // Error catching
-
-  // Import Bootstrap SCSS & JS here!
-
-
-  import('./bootstrap').then(({ default: bootstrap }) => bootstrap)
-    .then((bootstrap) => {
-      bootstrap(); // This imports the specific BS-5 JS we use
+  import('./bootstrap').then(({ default: bootstrap }) => bootstrap)  // Imports only the BS-5 components we use.
+    .then( bootstrap => {
+      bootstrap(); // This enables BS-5 functionality for components already built into the page
       // JS requiring Bootstrap 5 goes here
       let loadAlertsPromise = new Promise((resolve, reject) => {
         if (document.getElementById('emergencyAlerts')) {

@@ -2,3 +2,6 @@
     <!-- custom compiled and minified javascript -->
     <script src="{{page.baseurl}}assets/js/dist/main{% if site.data.hash %}.{{ site.data.hash }}{% endif %}.bundle.js" defer></script>
     {%- endif -%}
+    <!-- Custom JS to display a modal-window alert about old-browsers 
+      (No current versions of IE run a script with the nomodule attribute) -->
+    <script nomodule src="{{ page.baseurl }}assets/js/dist/nomodule.bundle.js" type="text/javascript"></script>
