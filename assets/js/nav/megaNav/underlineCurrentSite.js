@@ -10,7 +10,7 @@ function underlineCurrentSite() {
   //console.log(url);
 
   for (let i = 0, len = NAV_ITEMS.length; i < len; i++) {
-    let NAV_CATEGORIES = NAV_ITEMS[i].dataset.nav; // Comes from data-set attributes built into the HTML
+    let NAV_CATEGORIES = NAV_ITEMS[i].dataset.nav; // Comes from data-nav attributes built into the HTML
 
     if ( url.search(NAV_CATEGORIES) !== -1 ) {
       let NAV_LINK = NAV_ITEMS[i].querySelector('a'); // Again, pretty standard bootstrap navigation HTML struture to have anchors in the <li>

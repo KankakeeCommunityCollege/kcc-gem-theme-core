@@ -1,3 +1,4 @@
+// Updated for Bootstrap 5 - 10/19/21
 const ACCORDION_ID = 'accordion';
 const TABS_SELECTOR = '.navTabs';
 
@@ -17,10 +18,10 @@ function addHistoryState(target, hashTarget) {
 function accordionHandler(e) {
   if ( !e.target.matches('.accordion__button') )
     return;
-  
-  const accordionIsOpening = !Boolean(JSON.parse(e.target.getAttribute('aria-expanded')));
 
-  accordionIsOpening ? addHistoryState(e.target, e.target.dataset.target) : null;
+  const accordionIsOpening = Boolean(JSON.parse(e.target.getAttribute('aria-expanded')));
+
+  accordionIsOpening ? addHistoryState(e.target, e.target.dataset.bsTarget) : null;
 }
 
 function tabHandler(e) {

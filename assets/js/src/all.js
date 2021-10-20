@@ -16,12 +16,6 @@ function loadScript(src, callback) {
   document.head.append(script);
 }
 
-// window.addEventListener('load', () => {
-//   import('../nav/megaNav/megaNav.js') // This JS can wait until window.onload.
-//     .then(({ default: megaNav }) => megaNav())
-//     .catch(err => errorHandler(err));
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
   // Static import of kcc-theme.scss
   // Static import of loadModule.js 
@@ -50,19 +44,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Error catching
 
   // Import Bootstrap SCSS & JS here!
-  import('./bootstrap').then(({default: bootstrap}) => bootstrap())
-  .then(() => {
-    let loadAlertsPromise = new Promise((resolve, reject) => {
-      if (document.getElementById('emergencyAlerts')) {
-        loadScript('https://apis.google.com/js/api.js', () => {
-          import('../alerts/alerts.js').then(({ default: alerts }) => {
-            alerts();
-            resolve();
+
+
+  import('./bootstrap').then(({ default: bootstrap }) => bootstrap)
+    .then((bootstrap) => {
+      bootstrap(); // This imports the specific BS-5 JS we use
+      // JS requiring Bootstrap 5 goes here
+      let loadAlertsPromise = new Promise((resolve, reject) => {
+        if (document.getElementById('emergencyAlerts')) {
+          loadScript('https://apis.google.com/js/api.js', () => {
+            import('../alerts/alerts.js').then(({ default: alerts }) => {
+              alerts();
+              resolve();
+            });
           });
-        });
-      } else resolve();
-    });
-    loadAlertsPromise
+        } else resolve();
+      });
+      loadAlertsPromise
       .then(() => window.localStorage.getItem('userPrefersReducedMotion') ? loadModule('checkForPrefersReducedMotion') : null)
       .then(() => accordionOrTabSelector ? loadModule('contentHashLink') : null)
       .then(() => accordionOrTabSelector ? loadModule('addAccordionOrTabHistoryStates') : null)
@@ -96,8 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(() => document.getElementById('errorPageSearch') ? loadModule('errorPageSearch', 'errorPageSearch') : null)
       .then(() => import('../nav/megaNav/megaNav.js').then(({ default: megaNav }) => megaNav()))
       .catch( err => errorHandler(err));
-  
-  });
+    });
+
 
   
 

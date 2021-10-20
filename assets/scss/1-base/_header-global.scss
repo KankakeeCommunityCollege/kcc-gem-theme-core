@@ -432,9 +432,10 @@
 
 @media screen and (min-width: 992px) {
   .header-global__dropdown-menu--full-width {
-    left: .75rem;
-    right: .75rem;
-    top: 5.77rem;
+    left: .75rem !important; // All !importants needed to override ['data-bs-popper'] styling that messes up dropdown positioning
+    right: .75rem !important;
+    top: 5.77rem !important;
+    margin-top: 0 !important;
   }
 }
 

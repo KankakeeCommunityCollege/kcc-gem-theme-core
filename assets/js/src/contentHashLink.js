@@ -1,3 +1,6 @@
+// Updated for Bootstrap 5 - 10/19/21
+import Collapse from 'bootstrap/js/dist/collapse';
+import Tab from 'bootstrap/js/dist/tab';
 // Custom JS to do cool stuff with BS accordions and tabs by manipulating URL hashes and query's
 // EXAMPLE:
 //  https://<ORIGIN>/?id=course-withdrawals#tuition-payment-and-deadlines
@@ -45,31 +48,37 @@ function checkForQuery(query, hash) {
 
 function findContentTarget(hash) {
   const target = document.querySelector(hash);
-
+  console.log(target);
+  
   focusElement(target);
 }
 
 function checkForMatchingTabOrAccordion(hash) {
   if ( document.querySelector(`.nav-tabs a[href="${hash}"]`) ) {  // Looks for a matching BS4 tab element
-    let tab = $(`.nav-tabs a[href="${hash}"]`);  // **SIGH**, BS4 requires JQuery
+    const tabEl = document.querySelector(`.nav-tabs a[href="${hash}"]`);
+    const bsTab = new Tab(tabEl);
 
-    tab
-      .on('shown.bs.tab', () => {  // Bootstrap 4 method for tab events // Must be defined before the tab is activated
-        window.location.search ?
-          checkForQuery(window.location.search.replace(queryStartRegex, ''), hash)
-          : null; })
-      .tab('show');  // Bootstrap 4 Tab method
+    
+    tabEl.addEventListener('shown.bs.tab', () => {  // Bootstrap 4 method for tab events // Must be defined before the tab is activated
+      window.location.search ?
+        checkForQuery(window.location.search.replace(queryStartRegex, ''), hash)
+        : null;
+    });
+    bsTab.show();  // Bootstrap 4 Tab method
     findContentTarget(`${hash}-label`); // You need to .scrollIntoView() & .focus() on the tab-label which is an <a href="...">. It won't work to do .scrollIntoView() and .focus() on the div
-  } else if ( document.querySelector(`${hash}.collapse`) ) {  // Looks for a matching BS4 collapse element
-    let card = $(hash);  // **SIGH**, BS4 requires JQuery
+  } else if (document.querySelector(`${hash}.collapse`)) {  // Looks for a matching BS4 collapse element
+    console.log(hash);
+    const card = document.getElementById(hash.replace(/^#/, ''));
 
-    card
-      .on('shown.bs.collapse', () => {  // Bootstrap 4 Collapse method // Must be defined before the collapse is activated
-        window.location.search ?
-          checkForQuery(window.location.search.replace(queryStartRegex, ''), hash)
-        : null; })
-      .collapse('show'); // Bootstrap 4 Collapse method
-    findContentTarget(`button[data-target="${hash}"]`);
+    const bsCard = new Collapse(card, {toggle: false});  // BS 5 method    
+
+    card.addEventListener('shown.bs.collapse', () => {  // Bootstrap 5 Collapse method // Must be defined before the collapse is activated
+      window.location.search ?
+        checkForQuery(window.location.search.replace(queryStartRegex, ''), hash)
+        : null;
+    });
+    bsCard.show(); // Bootstrap 5 method
+    findContentTarget(`button[data-bs-target="${hash}"]`);
   }
 }
 
@@ -88,9 +97,6 @@ function initContentHashLink() {
 }
 
 function contentHashLink() {
-  if (!document.querySelector('#accordion') && !document.querySelector('.navTabs'))
-    return;
-    
   initContentHashLink();
 }
 

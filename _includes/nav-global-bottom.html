@@ -1,7 +1,7 @@
           <ul id="navGlobalBottom" class="navbar-nav header-global__nav-bottom justify-content-end header-global__navbar-nav--divider{% unless site.core_site_subsite == true %} header-global__nav-bottom--after{% endunless %}">
             {% for item in site.navigation %}
             <li
-              data-bs-nav="{{ item.link_text | downcase | replace: ' ', '-' | replace: '&', 'and' }}"
+              data-nav="{{ item.link_text | downcase | replace: ' ', '-' | replace: '&', 'and' }}"
               class="nav-item dropdown header-global__dropdown header-global__dropdown--position">
               <a href="#"
                 id="{{ item.link_text | downcase | replace: ' ', '-' | replace: '&', 'and' }}-dropdown"
