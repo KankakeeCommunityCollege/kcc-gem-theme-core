@@ -1,5 +1,5 @@
-// Overrides AND additions/extensions to Bootstrap 4's styling
-
+// Overrides AND additions/extensions to Bootstrap 5 styling
+// For tabbed content in a tablist
 .nav-tabs {
   border-bottom: 1px solid $grey-5;
 }
@@ -22,25 +22,7 @@
   border-color: $grey-5 $grey-5 $white;
 }
 
-.navbar-brand {
-  margin-right: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .navbar-brand {
-    margin-right: 1rem;
-  }
-}
-
-.btn {
-  vertical-align: baseline;  // Needed so Google Translate's injected <font> tags don't mess with font's alignment in the page
-}
-
-.modal-open .gsc-search-button {
-  margin-right: 15px;
-}
-
-// Modify the Bootstrap 4 dropdown menu's carot to give it an animated/interactice effect using pure CSS
+// Modify the Bootstrap 5 dropdown menu's carot to give it an animated/interactice effect using pure CSS
 // ======================================
 // .dropdown-toggle::after controls the BS4 dropdown-menu carot symbol's display
 @media screen and (max-width: 992px) {
@@ -52,22 +34,6 @@
   .nav-item.dropdown .show.dropdown-toggle::after {  // Selectors that are only present when a dropdown is toggled to the open state.
     transform: rotate(0deg);
   }
-}
-
-.dropdown-toggle.btn::after {  // Set starting position & transition Fx
-  transform: rotate(-90deg);
-  transition: transform 0.3s ease-in-out;
-}
-
-@media screen and (min-width: 992px) {
-  .dropdown-toggle:not(.btn)::after {  // Set starting position & transition Fx
-    display: none;
-  }
-}
-
-// Override the border color for .alert-warning
-.alert-warning {
-  border-color: rgba(0,0,0,.125)
 }
 
 .dropdown-toggle.btn-primary {

@@ -1,6 +1,12 @@
 
-<div class="row">
+<div id="heroSliderWrapper" class="row border--light">
   <div class="col hero-slider__slider">
+    <div id="loader" class="loader__bg text-center">
+      <img
+        src="{{ page.baseurl }}assets/img/loader.svg"
+        class="img-fluid loader--animate"
+        alt="Loading...">
+    </div>
   {% for slide in page.slides %}
   {% assign url_first_char = slide.url | slice: 0 %}
     {% if forloop.first == true %}

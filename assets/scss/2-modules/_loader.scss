@@ -1,9 +1,47 @@
-// Styling for the little loading GIF
+// Custom styling for loading-spinners
 
+// Styles for old loader.gif
 .loader {
   text-align: center;
   &__img {
     height: 100px;
     width: 100px;
   }
+}
+
+.loader__bg {
+  height: 0;
+  width: 100%;
+  display: block;
+  padding-bottom: 56.25%;
+  background-color: rgba(255,255,255,.75);
+  border: solid 1px rgba(0,0,0,.25);
+  position: relative;
+  .loader--animate {
+    visibility: visible;
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    top: 50%;
+    left: 50%;
+    margin-top: -37.5px;
+    margin-left: -37.5px;
+  }
+}
+
+// Styles for new loader.svg
+@keyframes spin-animation {
+  from {
+      transform: rotate(0);
+    }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader--animate {
+  animation-name: spin-animation;
+  animation-duration: 1s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
 }

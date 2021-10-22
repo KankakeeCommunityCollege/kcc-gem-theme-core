@@ -5,6 +5,8 @@ import 'slick-carousel';
 window.jQuery = window.$ = $; // Slick is older and requires jquery to be defined in window.
 
 const HERO_SLIDER_CLASSNAME = '.hero-slider__slider';  // Our classname for the hero-slider's DOM parent
+const LOADER = document.getElementById('loader');
+const WRAPPER = document.getElementById('heroSliderWrapper');
 const SLICK_PLAY = 'slickPlay';  // Methods unique to slick
 const SLICK_PAUSE = 'slickPause';  // Methods unique to slick
 const SLICK_NEXT_SLIDE = 'slickNext';  // Methods unique to slick
@@ -71,9 +73,8 @@ function watchForSlickInit(initFunction) {
 }
 
 function initSliders() {
-  if ( ! document.querySelector(HERO_SLIDER_CLASSNAME) )
-    return;
-
+  WRAPPER.classList.remove('border--light'); // Style-rule is defined in `_hero-slider.scss`
+  LOADER.parentNode.removeChild(LOADER);
   watchForSlickInit(initSlick);
 }
 

@@ -1,3 +1,15 @@
+// These style rules are imported dynamically via Webpack, with slick.js
+// `_sliders.scss` contains style rules needed when the page initially loads
+
+// ================================================================================================ //
+// CLASS NAMES STARTING `slick-*` ARE PART OF `slick-carousel`: https://kenwheeler.github.io/slick/ //
+// ================================================================================================ //
+
+// THIS STYLE IS USED IN JS - any change in class name must be reflected in `sliders.js` too!
+.border--light { // This class is removed via custom JS when after slick is dynamically loaded. (/assets/js/src/sliders.js)
+  border: solid 1px rgba(0,0,0,.25);
+}
+
 // hero-slider typography styles
 // ===============================================================
 
@@ -160,6 +172,8 @@
   width: 100%;
 }
 
+// Overrides to slick-carousel's next/previous buttons
+
 .hero-slider__slider .slick-next {
   right: 10px;
 }
@@ -207,27 +221,6 @@
   }
 }
 
-.hero-slider__slider .slick-dots li button:before {
-  opacity: 1;
-}
-
-.hero-slider__slider .slick-dots li.slick-active button:before {
-  opacity: 1;
-}
-
-.hero-slider__slider .slick-dots li  {
-  margin-left: 1px;
-  margin-right: 1px;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.hero-slider__slide-img--border {
-  border-color: $grey-8;
-  border-style: solid;
-  border-width: thin;
-}
-
 .slick-next::before {
   content: url('/assets/img/dbl-next_mobile.svg');
 }
@@ -246,6 +239,36 @@
   }
 }
 
+// Slick-carousel dot-indicators overrides
+.hero-slider__slider .slick-dots li button:before {
+  opacity: 1;
+}
+
+.hero-slider__slider .slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+.hero-slider__slider .slick-dots li  {
+  margin-left: 1px;
+  margin-right: 1px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.slick-dots li.slick-active button:before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle fill="%230f3b63" cx="6" cy="6" r="3.5"/></svg>');
+}
+
+// Custom styling to enhance slider user-experience
+// ================================================
+.hero-slider__slide-img--border {
+  border-color: $grey-8;
+  border-style: solid;
+  border-width: thin;
+}
+
+// Custom styling for a play/pause button
+// ======================================
 .hero-slider__button--toggle {
   background: transparent;
   border: none;
@@ -305,8 +328,4 @@
 .hero-slider__button--toggle:hover:before,
 .hero-slider__button--toggle:focus:before {
   opacity: 1;
-}
-
-.slick-dots li.slick-active button:before {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><circle fill="%230f3b63" cx="6" cy="6" r="3.5"/></svg>');
 }

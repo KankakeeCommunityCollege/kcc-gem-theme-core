@@ -1,3 +1,8 @@
+
+.btn { // Needed so Google Translate's injected <font> tags don't mess with font's alignment in the page
+  vertical-align: baseline;
+}
+
 .goog-te-gadget-simple {
   white-space: nowrap;
   border-radius: 20px;
