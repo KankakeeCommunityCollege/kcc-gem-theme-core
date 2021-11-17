@@ -7,7 +7,10 @@ $dark-mode-text-primary-blue-darker: #8db2e5;
 $dark-mode-text-primary-red: #e46181;
 $dark-mode-bg-primary-blue: #002348;
 $dark-mode-bg-primary-red: #80132e;
-
+$dark-mode-bg-primary-red-darker: #600f23;
+$dark-mode-bg-primary-blue-darker: #011a36;
+$dark-mode-text-blue-purple: #7588a6;
+$dark-mode-white-darker: #bfbfbf;
 
 .dark-mode body {
   background-color: $dark-mode-background;
@@ -43,7 +46,6 @@ $dark-mode-bg-primary-red: #80132e;
   }
   & .footer-icons,
   & .buttons__action,
-  & .header-global,
   & iframe[title="calendar"],
   & .hero-slider__slider,
   & #emergencyAlerts {
@@ -123,6 +125,27 @@ $dark-mode-bg-primary-red: #80132e;
       color: #fff3cd;
     }
   }
+  & .alert-primary {
+    background-color: #003670;
+    border-color: #cce5ff;
+    & p {
+      color: #cce5ff;
+    }
+  }
+  & .alert-info {
+    background-color: #0a4752;
+    border-color: #d1ecf1;
+    & p {
+      color: #d1ecf1;
+    }
+  }
+  & .alert-danger {
+    background-color: #461116;
+    border-color: #f8d7da;
+    & p {
+      color: #f8d7da;
+    }
+  }
   & a:not(.nav-link),
   & .links__darker-link {
     color: $dark-mode-text-primary-blue-darker;
@@ -135,10 +158,10 @@ $dark-mode-bg-primary-red: #80132e;
     filter: contrast(0.5);
   }
   & .header-global__nav-top {
-    background-color: $dark-mode-bg-primary-blue;
+    background-color: $dark-mode-bg-primary-blue-darker;
   }
   & .header-global__nav-bottom {
-    background-color: $dark-mode-bg-primary-red;
+    background-color: $dark-mode-bg-primary-red-darker;
   }
   & .buttons__action {
     color: $white !important;
@@ -254,11 +277,26 @@ $dark-mode-bg-primary-red: #80132e;
   & hr {
     border-top-color: rgba(255,255,255,.325);
   }
+  & div.dt-button-collection { // Adjustments to datatables buttons/searchPanes styling
+    filter: invert(1) brightness(2.5);
+  }
+  & div.dataTables_scrollBody { // Adjustments to datatables buttons/searchPanes styling
+    filter: brightness(.95);
+  }
+}
+
+.dark-mode #headerGlobalNavbarContent.collapse.show .header-global__nav-top::before,
+.dark-mode #headerGlobalNavbarContent.collapsing .header-global__nav-top::before {
+  background-color: $dark-mode-bg-primary-red-darker;
+}
+
+.dark-mode .header-global__navbar--search-toggle:before {
+  background-color: $dark-mode-bg-primary-red-darker;
 }
 
 @media screen and (min-width: 992px) {
   .dark-mode .header-global__navbar--search-toggle:before {
-    background-color: $dark-mode-bg-primary-blue;
+    background-color: $dark-mode-bg-primary-blue-darker;
   }
   .dark-mode .header-global__nav-bottom .dropdown:hover {
       background-color: #0f1417;

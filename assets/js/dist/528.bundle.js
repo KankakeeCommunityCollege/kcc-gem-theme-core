@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkcc_gem_theme_core=self.webpackChunkkcc_gem_theme_core||[]).push([[528],{6528:function(e,c,r){r.r(c),c.default=function(e,c){var r,t={};return t.spreadsheetId=e,r=c,t.range=r,t}}}]);

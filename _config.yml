@@ -7,7 +7,7 @@ timezone: America/Chicago
 google-tag_key: Google Tag Manager key goes here
 theme_config: true # This key should only be in the theme's _config.yml file and nowhere else # Otherwise you will get JS errors
 core_site: true
-# core_site_subsite: true
+core_site_subsite: true
 #translate: true ## Uncomment to activate Google Translate Powers (unfortunately no cowpowers)!!
 collections:
   tabs:
@@ -55,23 +55,31 @@ uploads_dir: # specifies the default uploads directory for uploads in CloudCanno
   - "uploads/"
 
 nav_links:
-  - link_text: '404'
-    link_href: 404.html
-  - link_text: Search
-    link_href: search
-  - link_text: Accordion
-    link_href: 'accordion'
-  - link_text: Settings
-    link_href: 'settings'
+  - link_text: Tutoring
+    link_href: tutoring
+    button: false
+  - link_text: Policies
+    link_href: 'policies'
+    button: false
+  - link_text: About
+    link_href: 'about'
+    button: false
+  - link_text: Faculty Resources
+    link_href: 'https://kcc.libguides.com/facultyservices'
+    external: true
+    button: false
   - link_text: Contact
     link_href: '#contact'
+    button: false
+    external: false
   - link_text: Get Help
     button: true
     dropdown:
-      - text: Subject Guides
+      - text: Library Help
         href: 'https://kcc.libguides.com/canvas'
       - text: Tutoring Help
         href: 'http://kcc.libguides.com/tutoringhelp'
+
 
 ## Global/Main Navigation configuration for kcc.edu
 navigation: ## Add a navigation key to any project using kcc-gem-theme to locally override these settings

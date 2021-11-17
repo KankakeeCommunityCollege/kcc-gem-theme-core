@@ -23,15 +23,11 @@ function initSlick() {
   });
 }
 
-function setAttributeOnEl(el, attr, value) {
-  return el.setAttribute(attr, value);
-}
-
 function toggleSlickPlayState(el, slickState, newButtonText) {
   const newButtonTextIsPause = newButtonText === pause;
 
   $(HERO_SLIDER_CLASSNAME).slick(slickState);
-  setAttributeOnEl(el, 'aria-label', newButtonText);
+  el.setAttribute('aria-label', newButtonText);
   el.classList.toggle('hero-slider__button--play');
   el.innerHTML = newButtonText;
 
@@ -51,30 +47,22 @@ function createButton() {
   const button = document.createElement('button');
   const initialButtonText = 'Pause';
 
-  setAttributeOnEl(button, 'role', 'button');
-  setAttributeOnEl(button, 'type', 'button');
-  setAttributeOnEl(button, 'aria-label', 'Pause');
-  setAttributeOnEl(button, 'style', 'display: block;');
+  button.setAttribute('aria-label', 'Pause');
+  button.type = 'button';
+  button.style = 'display: block;'
   button.innerHTML = initialButtonText;
   button.classList.add('hero-slider__button--toggle');
   SLICK_PARENT_EL.appendChild(button);
   watchForElementClicks(button);
 }
 
-function watchForSlickInit(initFunction) {
-  // slick's on 'init' function (See "events" in slick docs):
+function initSliders() {
+// slick's on 'init' function (See "events" in slick docs):
   // According to slick's docs; you have to call a $(slick).on('init', function(){ //... }); before you initialize slick:
   $(HERO_SLIDER_CLASSNAME).on('init', function(event, slick){
     createButton();
   });
-  initFunction();  // Initializing slick after the above `.on('init', function() {})`
-}
-
-function initSliders() {
-  if ( ! document.querySelector(HERO_SLIDER_CLASSNAME) )
-    return;
-
-  watchForSlickInit(initSlick);
+  initSlick();
 }
 
 export default initSliders;
