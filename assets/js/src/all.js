@@ -5,7 +5,6 @@ import loadModule from './loadModule'; // loadModule takes the following argumen
 // arg3 - Argument to pass to the default function - optional and requires arg2
 // Syntax: loadModule(arg1, arg2, arg3).then(...)... // uses Webpack dynamic imports which is Promise based
 const errorHandler = err => console.error(`Error loading module:\n${err}`, err);
-const accordionOrTabSelector = document.querySelector('#accordion') || document.querySelector('.navTabs')
 const path = window.location.pathname;
 
 function loadScript(src, callback) {
@@ -26,13 +25,9 @@ window.addEventListener('load', () => {
   loadScript('https://apis.google.com/js/api.js', () => {
     import('jquery').then(({default: $}) => import('bootstrap'))
       .then(() => import('../alerts/alerts.js').then(({ default: alerts }) => alerts()))
-      .then(() => loadModule('checkForPrefersReducedMotion'))
-      .then(() => accordionOrTabSelector ? loadModule('contentHashLink') : null)
-      .then(() => accordionOrTabSelector ? loadModule('addAccordionOrTabHistoryStates') : null)
-      .then(() => window.location.hostname.search(/\.kcc\.edu/) !== -1 ? loadModule('loadClarusCorpScript') : null)
       .then(() => {
         if ( document.querySelector('.hero-slider__slider') ) {
-          import('../../scss/slick-carousel.scss')
+          return import('../../scss/slick-carousel.scss')
             .then(() => loadModule('wrapPowerText'))
             .then(() => loadModule('sliders', 'initSliders'))
         }
@@ -41,9 +36,9 @@ window.addEventListener('load', () => {
       .then(() => loadModule('walkText', 'walkText', document.body))
       .then(() => loadModule('footerDate'))
       .then(() => loadModule('addClassToOpenNavbar'))
-      .then(() => path == '/settings/' ? loadModule('userSettings') : null)
+      .then(() => document.getElementById('darkModeButton') ? loadModule('userSettings') : null)
       .then(() => {
-        if (window.localStorage.getItem('darkModeSetting') == 'true' || path == '/settings/') {
+        if (window.localStorage.getItem('darkModeSetting') == 'true' || document.getElementById('darkModeButton')) {
           import('./darkMode').then(({ default: darkMode }) => darkMode)
             .then(darkMode => {
             import('../../scss/darkMode.scss').then(() => {
