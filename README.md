@@ -2,7 +2,7 @@
 
 ### A Jekyll theme for new KCC sites.
 
-[![Gem Version](https://badge.fury.io/rb/kcc-gem-theme.svg)](https://badge.fury.io/rb/kcc-gem-theme)
+[![Gem Version](https://badge.fury.io/rb/kcc-gem-theme-core.svg)](https://badge.fury.io/rb/kcc-gem-theme-core)
 
 -----
 
