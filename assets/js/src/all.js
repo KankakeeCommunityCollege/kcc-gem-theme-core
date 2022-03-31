@@ -16,13 +16,13 @@ function loadScript(src, callback) {
   document.head.append(script);
 }
 
-window.addEventListener('load', () => {
-  import('../nav/megaNav/megaNav.js') // This JS can wait until window.onload.
-    .then(({ default: megaNav }) => megaNav())
-    .catch(err => errorHandler(err));
-});
+// window.addEventListener('load', () => {
+//   import('../nav/megaNav/megaNav.js') // This JS can wait until window.onload.
+//     .then(({ default: megaNav }) => megaNav())
+//     .catch(err => errorHandler(err));
+// });
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   loadScript('https://apis.google.com/js/api.js', () => {
     import('jquery').then(({default: $}) => import('bootstrap'))
       .then(() => import('../alerts/alerts.js').then(({ default: alerts }) => alerts()))
@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
           loadModule('translateScript', 'watchForMenuClicks')
         : null;
       }).then(() => document.getElementById('errorPageSearch') ? loadModule('errorPageSearch', 'errorPageSearch') : null)
+      .then(() => {
+        return import('../nav/megaNav/megaNav.js').then(({ default: megaNav }) => megaNav())
+      })
       .catch( err => errorHandler(err));
     });
 });
