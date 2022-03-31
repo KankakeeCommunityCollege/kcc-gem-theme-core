@@ -49,7 +49,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 ## Development
 
-This Gem Theme project is setup just like other KCC projects. You can run `$ npm run dev`, `$ npm run production`, `$ npx webpack`, or `$ gulp`.
+This Gem Theme project is setup just like other KCC projects. You can run `$ npm run dev`, `$ npm run production`, or `$ npx webpack`.
 
 1. Run the command below to work on development of the theme and live preview it at http://localhost:3000.
 
