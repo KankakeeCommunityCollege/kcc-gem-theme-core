@@ -49,9 +49,12 @@ window.addEventListener('load', () => {
       })
       .then(() => path == '/search/' ? import('../../scss/searchPageOverrides.scss') : null)
       .then(() => {
-        return document.getElementById('google_translate_element') ?
-          loadModule('translateScript', 'watchForMenuClicks')
-        : null;
+        if (!document.getElementById('google_translate_element'))
+          return;
+
+        return import('../../scss/translate.scss')
+          .then(() => import('./translateScript'))
+          .then(({ default: translate }) => translate())
       }).then(() => document.getElementById('errorPageSearch') ? loadModule('errorPageSearch', 'errorPageSearch') : null)
       .then(() => {
         return import('../nav/megaNav/megaNav.js').then(({ default: megaNav }) => megaNav())

@@ -51,7 +51,7 @@
   text-decoration: none !important;
     &:before {
     font-family: 'Material Icons';
-    content: "\E927";
+    content: '\e927'; // Material icons translate symbol
     margin-right: 16px;
     font-size: 2rem;
     vertical-align: -10px;
@@ -66,7 +66,7 @@
   font-family: 'Material Icons';
   &:after {
     font-family: 'Material Icons';
-    content: "\E5C5";
+    content: '\e5c5'; // Material icons carrot symbol
     font-size: 1.5rem;
     vertical-align: -6px;
   }

@@ -33,15 +33,17 @@ function setStyles(selector, styles, IFRAME_MENU_ELEMENT) {
 }
 
 function translate() {
+  
   // RESTYLE THE DROPDOWN MENU
   if (document.getElementById('google_translate_element')) {
     const GOOGLE_TRANSLATE_ELEMENT = document.getElementById('google_translate_element');
     const styleConfigurationObject = createStyleConfigurationObject();
     const iframeStyles = setIframeStyles();
-    GOOGLE_TRANSLATE_ELEMENT.addEventListener('click', function (event) {
+
+    GOOGLE_TRANSLATE_ELEMENT.addEventListener('click', (e) => {
       const IFRAME_MENU_ELEMENT = document.querySelector('iframe[class*="goog-te-menu-frame"]');
 
-      //event.preventDefault();
+      //e.preventDefault();
       styleIFrameElement(IFRAME_MENU_ELEMENT, iframeStyles);
       Object.keys(styleConfigurationObject).forEach(function(selector) {
         setStyles(selector, styleConfigurationObject[selector], IFRAME_MENU_ELEMENT);
